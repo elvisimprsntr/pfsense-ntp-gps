@@ -21,8 +21,8 @@ COMPATIBILITY
 
 * [Garmin GPS 16x Firmware (> 4.50)](https://www8.garmin.com/support/download_details.jsp?id=4061)
 * [Garmin GPS 18x Firmware (> 4.50)](https://www8.garmin.com/support/download_details.jsp?id=4055)
-* pfSense-CE 2.6.0
-* pfSense-CE 2.7.0-DEVEL
+* pfSenseCE 2.6.0
+* pfSenseCE 2.7.0-DEVEL
 * pfSense+ 23.01
 * pfSense+ 23.05
 
