@@ -29,7 +29,7 @@ COMPATIBILITY
 INSTRUCTIONS
 
 1. Configure pfSense NTP Time Servers time.nist.gov prefer pool
-* NTP Graphs : Enable RRD graphs
-* Statistics Logging: reference clock and clock discipline
-* Allow NTP to run for 24 hours to allow adequate time for the clock drift (a.k.k freq) to settle. 
+2. NTP Graphs : Enable RRD graphs
+3. Statistics Logging: reference clock and clock discipline
+4. Allow NTP to run for 24 hours to allow adequate time for the clock drift (a.k.k freq) to settle. 
 
