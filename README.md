@@ -26,7 +26,7 @@ COMPATIBILITY
 * pfSense+ 23.01
 * pfSense+ 23.05
 
-NTP CONFIG
+INITIAL NTP CONFIG
 
 1. Configure pfSense NTP Time Servers: time.nist.gov, prefer, pool
 2. NTP Graphs: Enable RRD graphs
