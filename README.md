@@ -43,10 +43,13 @@ PPS ON CTS PIN
 1. [FreeBSD UART Manual Page](https://man.freebsd.org/cgi/man.cgi?query=uart)
 2. Disable Console Redirection in the BIOS and System -> Advanced -> Admin Access -> Serial Communication
 3. CTS tunable example:
-   * System -> Advanced -> System Tunables -> New
-   * Tunable Name -> dev.uart.0.pps_mode
-   * Description -> 1=CTS, 2=DCD
-   * Value -> 1
+	* System -> Advanced -> System Tunables -> New
+	* Tunable Name -> dev.uart.0.pps_mode
+	* Description -> 1=CTS, 2=DCD
+	* Value -> 1
+4. Or, CTS loader example:
+	* Create a /boot/loader.conf.local file
+	* dev.uart.0.pps_mode="1"
 
 GARMIN GPS CONNECTIONS
 
