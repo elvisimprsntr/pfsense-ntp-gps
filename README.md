@@ -63,7 +63,7 @@ GARMIN GPS CONNECTIONS
     * [RJ45 Crimper](https://www.amazon.com/gp/product/B093LP3SML)
     * [USB to RS232 Adapter](https://www.amazon.com/gp/product/B0759HSLP1) for Garmin GPS Windows program firmware updates
 
-2. The Garmin 16x LVS already has a RJ45 connector from the factory.  Note: The remote ON/OFF pin #3 needs to be connected to RS232 ground pin #5.
+2. The Garmin 16x LVS already has a RJ45 connector from the factory.  Note: The remote ON/OFF pin #3 needs to be connected to RS232 or RJ45 ground pin #5.
 3. The Garmin 18x LVC has a JST connector from the factory, which can be re-terminated with a RJ45 connector with a similar pinout as the 16x for interchangeability.  Note: There is 1x26 AWG black power ground wire, and 2x28 AWG black wires under the PVC jacket even though only one is terminated to the JST connector.  Per Garmin Tech Support, both 28 AWG black wires are connected internally to the GPS module, thus only one needs to be connected to RS232 or RJ45 ground pin #5.
 4. Build a cable to provide USB power, RS232 communication, and PPS signal.
 ![pinout](Pinout.jpg)
