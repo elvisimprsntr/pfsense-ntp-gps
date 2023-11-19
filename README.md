@@ -19,8 +19,8 @@ RS232 (DCD)
 * [Used Garmin GPS 16x LVS](https://www.ebay.com/sch/i.html?_from=R40&_nkw=Garmin+GPS+16x+LVS)
 * [Used Garmin GPS 18x LVC](https://www.ebay.com/sch/i.html?_from=R40&_nkw=Garmin+GPS+18x+LVC)
 
-RJ45 (CTS)
-[New/Used Protectli Vault FW2 or FW4](https://protectli.com/product-comparison/)
+RJ45 (CTS) 
+* [New/Used Protectli Vault FW2 or FW4](https://protectli.com/product-comparison/)
 
 COMPATIBILITY
 
