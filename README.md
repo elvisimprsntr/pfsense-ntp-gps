@@ -9,20 +9,25 @@ SUMMARY
 
 PREREQUISITES
 
-* Mini PC with RS-232 port with DCD input
+* Mini-PC with RS232 port with DCD input or a RJ45 COM port with the CTS input
 * Serial GPS receiver with PPS output
 
 RECOMENDED HARDWARE
+
+RS232 (DCD)
 * [Used Qotom Q305P/Q310P](https://www.ebay.com/sch/i.html?_from=R40&_nkw=qotom)
 * [Used Garmin GPS 16x LVS](https://www.ebay.com/sch/i.html?_from=R40&_nkw=Garmin+GPS+16x+LVS)
 * [Used Garmin GPS 18x LVC](https://www.ebay.com/sch/i.html?_from=R40&_nkw=Garmin+GPS+18x+LVC)
+
+RJ45 (CTS)
+[New/Used Protectli Vault FW2 or FW4](https://protectli.com/product-comparison/)
 
 COMPATIBILITY
 
 * [Garmin GPS 16x Firmware (>= 4.50)](https://www8.garmin.com/support/download_details.jsp?id=4061)
 * [Garmin GPS 18x Firmware (>= 4.50)](https://www8.garmin.com/support/download_details.jsp?id=4055)
-* pfSenseCE 2.6.0
-* pfSenseCE 2.7.0-DEVEL
+* pfSense CE 2.6.x
+* pfSense CE 2.7.x
 * pfSense+ 23.01
 * pfSense+ 23.05
 
@@ -32,6 +37,16 @@ INITIAL NTP CONFIG
 2. NTP Graphs: Enable RRD graphs
 3. Statistics Logging: reference clock, clock discipline
 4. Allow NTP to run for 24 hours to allow adequate time for the clock drift (a.k.a. freq) to settle. You may have to repeat this step after updating and/or reinstalling pfSense/FreeBSD
+
+PPS ON CTS PIN
+
+1. [FreeBSD UART Manual Page](https://man.freebsd.org/cgi/man.cgi?query=uart)
+2. Disable Console Redirection in the BIOS and System -> Advanced -> Admin Access -> Serial Communication
+3. CTS tunable example:
+   * System -> Advanced -> System Tunables -> New
+   * Tunable Name -> dev.uart.0.pps_mode
+   * Description -> 1=CTS, 2=DCD
+   * Value -> 1
 
 GARMIN GPS CONNECTIONS
 
@@ -46,7 +61,14 @@ GARMIN GPS CONNECTIONS
     * [USB to RS232 Adapter](https://www.amazon.com/gp/product/B0759HSLP1) for Garmin GPS Windows program firmware updates
 
 2. The Garmin 16x LVS already has a RJ45 connector from the factory.  Note: The remote ON/OFF pin #3 needs to be connected to RS-232 ground pin #5.
-3. The Garmin 18x LVC has a JST connector from the factory, which can be re-terminated with a RJ45 connector with a similar pinout as the 16x for interchangeability.  Note: There is 1x26 AWG black power ground wire, and 2x28 AWG black wires under the PVC jacket even though only one is terminated to the JST connector.  Per Garmin Tech Support, both 28 AWG black wires are connected internally to the GPS module, thus only one needs to be connected to RS-232 ground pin #5.
-4. Build a cable to provide USB power, RS-232 communication, and PPS signal.
+3. The Garmin 18x LVC has a JST connector from the factory, which can be re-terminated with a RJ45 connector with a similar pinout as the 16x for interchangeability.  Note: There is 1x26 AWG black power ground wire, and 2x28 AWG black wires under the PVC jacket even though only one is terminated to the JST connector.  Per Garmin Tech Support, both 28 AWG black wires are connected internally to the GPS module, thus only one needs to be connected to RS232 ground pin #5.
+4. Build a cable to provide USB power, RS232 communication, and PPS signal.
 ![pinout](Pinout.jpg)
 ![cable](cable.jpeg)
+
+USEFUL NTP CLI COMMANDS
+
+* ntpq -pn
+* ntpq -c kerninfo
+* ntpq -c sysinfo
+* ntptime
