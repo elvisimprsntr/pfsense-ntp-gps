@@ -28,10 +28,8 @@ COMPATIBILITY
 
 * [Garmin GPS 16x Firmware (>= 4.50)](https://www8.garmin.com/support/download_details.jsp?id=4061)
 * [Garmin GPS 18x Firmware (>= 4.50)](https://www8.garmin.com/support/download_details.jsp?id=4055)
-* pfSense CE 2.6.x
-* pfSense CE 2.7.x
-* pfSense+ 23.01
-* pfSense+ 23.05
+* pfSense CE >= 2.6.0
+* pfSense+ >= 23.01
 
 INITIAL NTP CONFIG
 
