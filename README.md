@@ -87,7 +87,7 @@ NTP GPS SETTINGS EXAMPLE
 * Enable kernel PPS clock discipline -> 1
 * Log the sub-second fraction of the received time stamp -> 1
 * Display extended GPS status -> 1
-* GPS Initialization
+* GPS Initialization 
 	$PGRMC,A,4,18,,,,,,,8,,2,4,*09 
 	$PGRMC1,1,1,,,,,,N,N,,,,1,,2*55 
 	$PGRMO,,2*75 
