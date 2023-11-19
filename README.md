@@ -72,6 +72,28 @@ GARMIN GPS CONNECTIONS
 ![pinout](Pinout.jpg)
 ![cable](cable.jpeg)
 
+
+NTP GPS SETTINGS EXAMPLE
+
+* Services -> NTP -> Serial GPS
+* Type -> Garmin
+* Serial Port -> cuau0
+* Baud -> 38400
+* NMEA Messages -> All
+* Fudge Time 1 -> 0.0013
+* Fudge TIme 2 -> 0.369
+* Prefer this clock -> 1
+* Enable PPS signal processing -> 1
+* Enable kernel PPS clock discipline -> 1
+* Log the sub-second fraction of the received time stamp -> 1
+* Display extended GPS status -> 1
+* GPS Initialization
+	$PGRMC,A,4,18,,,,,,,8,,2,4,*09
+	$PGRMC1,1,1,,,,,,N,N,,,,1,,2*55
+	$PGRMO,,2*75
+	$PGRMO,GPGGA,1*20
+	$PGRMI,,,,,,,R*3F
+
 USEFUL NTP CLI COMMANDS
 
 * ntpq -pn
