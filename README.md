@@ -75,3 +75,32 @@ USEFUL NTP CLI COMMANDS
 * ntpq -c kerninfo
 * ntpq -c sysinfo
 * ntptime
+
+LCDPROC LCD DISPLAY (OPTIONAL)
+
+1. You can optionally add a LCD display, install the LCDproc package, and enable the NTP status screen
+	* Services -> LCDproc -> Screens -> Display NTP Status
+
+SUGGESTED LCD DISPLAY
+
+1. [Crystalfontz XES635 LCD USB Display in Steel Enclosure](https://www.crystalfontz.com/product/xes635bktfkku)
+2. LCDproc server settings example:
+	* Services -> LCDproc -> Server
+	* COM port -> /dev/cuaU0
+	* Display Size -> 4 rows 20 columns
+	* Driver -> CrystalFontz Packet
+	* Port Speed -> Default
+	
+LCDPROC NTP SCREEN NOTES
+
+* I am by no means a NTPD algorithm expert, but I noticed if a source is marked as a valid PPS Peer "o", NTPD uses that to sync and serve time to clients regardless if there a separate Active Peer "*" used for time data. If a GPS is being used for both a PPS Peer "o"and source of time data, it will be marked as PPS Peer "o" and there will be no other Active Peers "*" marked (see screen cap below). The NTP Widget seems to display the Active Peer "*" even when the PPS Peer "o" is actually being used to sync and serve time to clients. Which source is actually served to clients can be confirmed with "ntpq -c sysinfo". If you want to see the stability value when using a GPS with PPS, you can simply set the Clock ID of the GPS source to "PPS". I intentionally did not include seconds on the display since even with the LCDProc Refresh Frequency set to 1 second, time will jump multiple seconds with each screen refresh. Not sure if there is another mechanism that would improve the refresh rate of the first row to eliminate increments of multiple seconds.
+
+
+LCDPROC NTP SCREENS
+
+![gps](LCDGPS.png)
+![pps](LCDPPS.png)
+![ip](LCDIP.png)
+
+
+
