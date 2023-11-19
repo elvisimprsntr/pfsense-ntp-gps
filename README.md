@@ -93,6 +93,7 @@ NTP GPS SETTINGS EXAMPLE
 	* $PGRMO,,2*75 
 	* $PGRMO,GPGGA,1*20
 	* $PGRMI,,,,,,,R*3F 
+* Auto correct malformed initialization commands -> 1
 
 USEFUL NTP CLI COMMANDS
 
