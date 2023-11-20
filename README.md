@@ -9,7 +9,7 @@ SUMMARY
 
 PREREQUISITES
 
-* Mini PC with RS232 DE9 port with DCD input or a RJ45 COM port with the CTS input
+* Mini PC with DE9 RS232 port with DCD input or a RJ45 COM port with the CTS input
 * Serial GPS receiver with PPS output
 
 RECOMENDED HARDWARE
@@ -18,7 +18,7 @@ GPS RECEIVER
 * [Used Garmin GPS 16x LVS](https://www.ebay.com/sch/i.html?_from=R40&_nkw=Garmin+GPS+16x+LVS)
 * [Used Garmin GPS 18x LVC](https://www.ebay.com/sch/i.html?_from=R40&_nkw=Garmin+GPS+18x+LVC)
 
-RS232 DE9 (DCD) MINI PC
+DE9 RS232 (DCD) MINI PC
 * [Used Qotom Q305P/Q310P](https://www.ebay.com/sch/i.html?_from=R40&_nkw=qotom)
 
 RJ45 COM (CTS) MINI PC
