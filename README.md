@@ -72,6 +72,19 @@ GARMIN GPS CONNECTIONS
 ![pinout](Pinout.jpg)
 ![cable](cable.jpeg)
 
+NTP SETTINGS 
+
+* Services -> NTP -> Settings
+* Enable NTP Server -> 1
+* Interface -> LAN, Localhost
+* Time Severs
+	* time.nist.gov
+	* Pool
+* NTP Graphs-> Enable RRD graphs of NTP statistics -> 1
+* Statistics Logging
+	* Log reference clock statistics -> 1
+	* Log clock discipline statistics -> 1
+	* Log NTP peer statistics -> 1
 
 NTP GPS SETTINGS EXAMPLE
 
