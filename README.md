@@ -89,6 +89,7 @@ NTP GPS SETTINGS EXAMPLE
 * Type -> Garmin
 * Serial Port -> cuau0
 * Baud -> 38400
+* Check baud rate before sending init commands -> 1
 * NMEA Messages -> All
 * Fudge Time 1 -> 0.0013
 * Fudge TIme 2 -> 0.369
