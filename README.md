@@ -22,7 +22,7 @@ DE9 RS232 (DCD) MINI PC
 * [Used Qotom Q305P/Q310P](https://www.ebay.com/sch/i.html?_from=R40&_nkw=qotom)
 
 RJ45 COM (CTS) MINI PC
-* [New/Used Protectli Vault FW2 FW4 FW6](https://protectli.com/product-comparison/)
+* [New/Used Protectli Vault FW Series](https://protectli.com/product-comparison/)
 
 COMPATIBILITY 
 
