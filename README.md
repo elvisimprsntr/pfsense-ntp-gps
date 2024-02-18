@@ -17,6 +17,8 @@ RECOMENDED HARDWARE
 GPS RECEIVER 
 * [Used Garmin GPS 16x LVS](https://www.ebay.com/sch/i.html?_from=R40&_nkw=Garmin+GPS+16x+LVS)
 * [Used Garmin GPS 18x LVC](https://www.ebay.com/sch/i.html?_from=R40&_nkw=Garmin+GPS+18x+LVC)
+* [Used Garmin GPS 19x HVS](https://www.ebay.com/sch/i.html?_from=R40&_nkw=Garmin+GPS+19x+HVS)
+
 
 DE9 RS232 (DCD) MINI PC
 * [Used Qotom Q305P/Q310P](https://www.ebay.com/sch/i.html?_from=R40&_nkw=qotom)
@@ -28,6 +30,8 @@ COMPATIBILITY
 
 * [Garmin GPS 16x Firmware (>= 4.50)](https://www8.garmin.com/support/download_details.jsp?id=4061)
 * [Garmin GPS 18x Firmware (>= 4.50)](https://www8.garmin.com/support/download_details.jsp?id=4055)
+* [Garmin GPS 19x Firmware (>= 2.80)](https://www8.garmin.com/support/download_details.jsp?id=6263)
+
 * pfSense CE >= 2.6.0
 * pfSense+ >= 23.01
 
