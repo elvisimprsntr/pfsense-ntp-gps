@@ -99,6 +99,8 @@ NTP GPS SETTINGS EXAMPLE
 * NMEA Messages -> All
 * Fudge Time 1 -> 0.0013
 * Fudge TIme 2 -> 0.369
+* Minimum Poll Interval -> 3: 8 seconds
+* Maximum Poll Interval -> 3: 8 seconds
 * Prefer this clock -> 1
 * Enable PPS signal processing -> 1
 * Enable kernel PPS clock discipline -> 1
@@ -118,6 +120,10 @@ USEFUL NTP CLI COMMANDS
 * ntpq -c kerninfo
 * ntpq -c sysinfo
 * ntptime
+
+CLOCK OFFSET RESULTS
+
+![loopstats](loopstats.jpg)
 
 LCDPROC LCD DISPLAY (OPTIONAL)
 
