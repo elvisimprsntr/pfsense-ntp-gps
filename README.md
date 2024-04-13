@@ -121,6 +121,10 @@ USEFUL NTP CLI COMMANDS
 * ntpq -c sysinfo
 * ntptime
 
+PFSENSE FIREWALL RULE
+
+![rule](rule.png)
+
 CLOCK OFFSET RESULTS
 
 ![loopstats](loopstats.jpg)
