@@ -172,12 +172,12 @@ NTPPOOL ANALYSIS
 ![ntp4](offset_boxplot_per_country_filtered.png)
 ![ntp5](rtt_vs_country_filtered.png)
 ![ntp6](score_vs_time_filtered.png)
-![ntp7](correlation_matrix_with_country_label.png)
+![ntp7](correlation_matrix_with_country_hour.png)
 ![ntp8](offset_vs_hour_filtered.png)
 ![ntp9](monitor_score_leaderboard.png)
 ![ntp10](country_score_leaderboard.png)
 ![ntp11](country_compliance_summary.png)
-![ntp12](ntp_dashboard.png)
+![ntp12](ntp_dashboard_extended.png)
 
 
 
