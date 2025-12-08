@@ -157,7 +157,7 @@ LCDPROC NTP SCREENS
 
 NTPPOOL ANALYSIS
 
-1. If you add your NTP server to the NTPPOOL, you can analyze the data from the monitoring servers to assess your NTP server performance.
+1. If you add your NTP server to NTPPOOL, you can analyze the data from the monitoring servers to assess your NTP server performance.
 	* You can download the CVS log data from your monitoring page via the link at the bottom of the page.
 	* Default will download 200 lines.  You can manually update the URL to include more lines if desired. 
 	* Copy and paste the data into a ntp.txt file.
