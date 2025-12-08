@@ -4,6 +4,27 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import LabelEncoder
 
+"""
+Data Analysis Script
+Generated with assistance from Microsoft Copilot
+Author: elvisimprsntr
+Date: 2025-12-08
+
+Description:
+- Analyzes NTP benchmarking data
+- Filters out servers with invalid RTT/offset
+- Produces correlation matrix and time-of-day plots
+
+Dependencies:
+- Python 3.11
+- pandas==2.2.2
+- matplotlib==3.9.2
+- seaborn==0.13.2
+
+Data Source:
+- Internal monitoring export (CSV)
+"""
+
 # --- Threshold Parameters ---
 THRESHOLD_OFFSET = 0.010   # 10ms offset compliance
 THRESHOLD_JITTER = 0.010   # 10ms jitter compliance
