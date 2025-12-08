@@ -6,7 +6,7 @@ from pathlib import Path
 
 """
 Local NTP Server Analysis
-Author: Alec + Copilot
+Author: elvisimprsntr + Copilot
 Date: 2025-12-08
 
 Description:

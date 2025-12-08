@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 """
 Data Analysis Script
 Generated with assistance from Microsoft Copilot
-Author: elvisimprsntr
+Author: elvisimprsntr + CoPilot
 Date: 2025-12-08
 
 Description:
