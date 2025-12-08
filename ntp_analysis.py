@@ -97,15 +97,21 @@ plt.grid(True)
 plt.tight_layout()
 plt.savefig("score_vs_time_filtered.png")
 
-# --- 8. Correlation Matrix with Label-encoded Country Codes ---
+# --- 8. Correlation Matrix with Label-encoded Country Codes + Hour of Day ---
 le = LabelEncoder()
 df["country_encoded"] = le.fit_transform(df["country_code"].astype(str))
-corr_label = df[["offset","rtt","score","country_encoded"]].corr()
-plt.figure(figsize=(6,5))
+
+# Add hour of day as numeric feature
+df["hour"] = df["ts"].dt.hour
+
+# Build correlation matrix including hour
+corr_label = df[["offset","rtt","score","country_encoded","hour"]].corr()
+
+plt.figure(figsize=(7,6))
 sns.heatmap(corr_label, annot=True, cmap="coolwarm", center=0)
-plt.title("Correlation Matrix")
+plt.title("Correlation Matrix (with Country + Hour of Day)")
 plt.tight_layout()
-plt.savefig("correlation_matrix_with_country_label.png")
+plt.savefig("correlation_matrix_with_country_hour.png")
 
 # --- 9. Peer Summary Table (samples, outliers, jitter) ---
 peer_summary = df.groupby("monitor_name").agg(
@@ -215,8 +221,8 @@ plt.ylabel("Compliance (%)")
 plt.tight_layout()
 plt.savefig("country_compliance_summary.png")
 
-# --- 15. Combined Dashboard-style Plot ---
-fig, axes = plt.subplots(2, 2, figsize=(16,12))
+# --- 15. Combined Dashboard-style Plot (now 2x3 grid with correlation matrix) ---
+fig, axes = plt.subplots(2, 3, figsize=(20,12))
 
 # Panel 1: Offset vs Time (with rolling mean)
 axes[0,0].plot(df["ts"], df["offset"], marker=".", linestyle="none", alpha=0.3, label="Offset samples")
@@ -245,12 +251,12 @@ sns.barplot(
     hue=peer_stats_sorted.index,
     palette="viridis",
     legend=False,
-    ax=axes[1,0]
+    ax=axes[0,2]
 )
-axes[1,0].set_title("Top 15 Monitor Scores")
-axes[1,0].set_xlabel("Monitor")
-axes[1,0].set_ylabel("Score")
-axes[1,0].tick_params(axis="x", rotation=90)
+axes[0,2].set_title("Top 15 Monitor Scores")
+axes[0,2].set_xlabel("Monitor")
+axes[0,2].set_ylabel("Score")
+axes[0,2].tick_params(axis="x", rotation=90)
 
 # Panel 4: Country Compliance Summary
 sns.barplot(
@@ -259,12 +265,24 @@ sns.barplot(
     hue=country_compliance.index,
     palette="coolwarm",
     legend=False,
-    ax=axes[1,1]
+    ax=axes[1,0]
 )
-axes[1,1].set_title(f"Compliance per Country (<{THRESHOLD_OFFSET*1000:.0f}ms Offset)")
-axes[1,1].set_xlabel("Country")
-axes[1,1].set_ylabel("Compliance (%)")
-axes[1,1].tick_params(axis="x", rotation=90)
+axes[1,0].set_title(f"Compliance per Country (<{THRESHOLD_OFFSET*1000:.0f}ms Offset)")
+axes[1,0].set_xlabel("Country")
+axes[1,0].set_ylabel("Compliance (%)")
+axes[1,0].tick_params(axis="x", rotation=90)
+
+# Panel 5: Offset Distribution by Hour of Day
+sns.boxplot(x="hour", y="offset", data=df, ax=axes[1,1])
+axes[1,1].set_title("Offset Distribution by Hour of Day")
+axes[1,1].set_xlabel("Hour")
+axes[1,1].set_ylabel("Offset (s)")
+axes[1,1].grid(True)
+
+# Panel 6: Correlation Matrix (with hour + country)
+corr_label = df[["offset","rtt","score","country_encoded","hour"]].corr()
+sns.heatmap(corr_label, annot=True, cmap="coolwarm", center=0, ax=axes[1,2])
+axes[1,2].set_title("Correlation Matrix (Country + Hour)")
 
 plt.tight_layout()
-plt.savefig("ntp_dashboard.png")
+plt.savefig("ntp_dashboard_extended.png")
