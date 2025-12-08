@@ -155,5 +155,32 @@ LCDPROC NTP SCREENS
 ![pps](LCDPPS.png)
 ![ip](LCDIP.png)
 
+NTPPOOL ANALYSIS
+
+1. If you add your NTP server to the NTPPOOL, you can analyze the data from the monitoring servers to assess your NTP server performance.
+	* You can download the CVS log data from your monitoring page via the link at the bottom of the page.
+	* Default will download 200 lines.  You can manually update the URL to include more lines if desired. 
+	* Copy and paste the data into a ntp.txt file.
+	* Use the ntp_analysis.py python script to perform analysis and generate the example plots below.
+		* Note: The script to developed and tested on macOS.  You may have to install some python module dependancies. 
+		* pip install pandas matplotlib seaborn scikit-learn
+
+![ntp1](offset_vs_time_filtered.png)
+![ntp2](offset_histogram_filtered.png)
+![ntp3](rtt_vs_offset_filtered.png)
+![ntp4](offset_boxplot_per_country_filtered.png)
+![ntp5](rtt_vs_country_filtered.png)
+![ntp6](score_vs_time_filtered.png)
+![ntp7](correlation_matrix_with_country_label.png)
+![ntp8](offset_vs_hour_filtered.png)
+![ntp9](monitor_score_leaderboard.png)
+![ntp10](country_score_leaderboard.png)
+![ntp11](country_compliance_summary.png)
+![ntp12](ntp_dashboard.png)
+
+
+
+
+
 
 
