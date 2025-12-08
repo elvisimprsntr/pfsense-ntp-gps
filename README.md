@@ -162,7 +162,7 @@ NTPPOOL ANALYSIS
 	* Default will download 200 lines.  You can manually update the URL to include more lines if desired. 
 	* Copy and paste the data into a ntp.txt file.
 	* Use the ntp_analysis.py python script to perform analysis and generate the example plots below.
-		* Note: The script was developed and tested on macOS.  You may have to install some python module dependancies. 
+		* Note: The script was developed and tested on macOS.  You may have to install some python dependancies. 
 		* pip install pandas matplotlib seaborn scikit-learn
 	* Credit: The script was developed with the assistance of MicroSoft CoPilot.
 
