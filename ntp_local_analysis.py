@@ -57,8 +57,8 @@ peer["ts"] = mjd_to_datetime(peer["mjd"], peer["seconds"])
 clock["ts"] = mjd_to_datetime(clock["mjd"], clock["seconds"])
 
 # --- Compliance Thresholds for Local PPS ---
-THRESHOLD_OFFSET = 0.00005   # 50 microseconds
-THRESHOLD_JITTER = 0.00002   # 20 microseconds
+THRESHOLD_OFFSET = 0.00002   # 20 microseconds
+THRESHOLD_JITTER = 0.00001   # 10 microseconds
 
 # --- Compliance Scoring ---
 peer_stats = peer.groupby("peer").agg(
@@ -79,6 +79,14 @@ peer_stats["monitor_score"] = (
 
 print("\nLocal PPS Compliance Scoring Table:")
 print(peer_stats.sort_values("monitor_score", ascending=False))
+
+# --- Custom Palette ---
+custom_palette = {
+    "127.127.20.0": "black",
+    "132.163.97.1": "green",
+    "132.163.97.2": "orange",
+    "132.163.97.4": "red"
+}
 
 # --- Loopstats Offset vs Time ---
 plt.figure(figsize=(12,6))
@@ -106,17 +114,21 @@ plt.savefig("loopstats_frequency_vs_time.png")
 
 # --- Peer Offset vs Time ---
 plt.figure(figsize=(12,6))
-sns.lineplot(x="ts", y="offset", hue="peer", data=peer, marker="o")
+non_local = peer[peer["peer"] != "127.127.20.0"]
+sns.lineplot(x="ts", y="offset", hue="peer", data=non_local, marker="o", palette=custom_palette)
+local = peer[peer["peer"] == "127.127.20.0"]
+plt.plot(local["ts"], local["offset"], "o", color="black", label="127.127.20.0", markersize=4)
 plt.title("Peer Offset vs Time")
 plt.xlabel("Time")
 plt.ylabel("Offset (s)")
 plt.grid(True)
+plt.legend()
 plt.tight_layout()
 plt.savefig("peerstats_offset_vs_time.png")
 
 # --- Peer Jitter Distribution ---
 plt.figure(figsize=(8,6))
-sns.boxplot(x="peer", y="jitter", data=peer)
+sns.boxplot(x="peer", y="jitter", hue="peer", data=peer, palette=custom_palette, legend=False)
 plt.xticks(rotation=90)
 plt.title("Peer Jitter Distribution")
 plt.xlabel("Peer")
@@ -225,7 +237,7 @@ axes[0,1].set_ylabel("Frequency Drift (ppm)")
 axes[0,1].grid(True)
 
 # Panel 3: Peer Offset
-sns.lineplot(x="ts", y="offset", hue="peer", data=peer, ax=axes[0,2])
+sns.lineplot(x="ts", y="offset", hue="peer", data=peer, ax=axes[0,2], palette=custom_palette)
 axes[0,2].set_title("Peer Offset vs Time")
 axes[0,2].set_xlabel("Time")
 axes[0,2].set_ylabel("Offset (s)")
