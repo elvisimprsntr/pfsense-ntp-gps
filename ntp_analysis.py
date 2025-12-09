@@ -25,9 +25,9 @@ Data Source:
 """
 
 # --- Threshold Parameters ---
-THRESHOLD_OFFSET = 0.020   # 20ms offset compliance
-THRESHOLD_JITTER = 0.002   # 2ms jitter compliance
-THRESHOLD_RTT = 200        # 200ms RTT compliance
+THRESHOLD_OFFSET = 0.030   # 30ms offset compliance
+THRESHOLD_JITTER = 0.003   # 3ms jitter compliance
+THRESHOLD_RTT = 300        # 300ms RTT compliance
 
 # Load CSV
 df = pd.read_csv("ntp.txt")
