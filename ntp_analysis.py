@@ -2,7 +2,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.preprocessing import LabelEncoder
 
 """
 Data Analysis Script
@@ -118,21 +117,18 @@ plt.grid(True)
 plt.tight_layout()
 plt.savefig("score_vs_time_filtered.png")
 
-# --- 8. Correlation Matrix with Label-encoded Country Codes + Hour of Day ---
-le = LabelEncoder()
-df["country_encoded"] = le.fit_transform(df["country_code"].astype(str))
-
+# --- 8. Correlation Matrix (EXCLUDING country) ---
 # Add hour of day as numeric feature
 df["hour"] = df["ts"].dt.hour
 
-# Build correlation matrix including hour
-corr_label = df[["offset","rtt","score","country_encoded","hour"]].corr()
+# Build correlation matrix without country_encoded
+corr_label = df[["offset","rtt","score","hour"]].corr()
 
 plt.figure(figsize=(7,6))
 sns.heatmap(corr_label, annot=True, cmap="coolwarm", center=0)
-plt.title("Correlation Matrix (with Country + Hour of Day)")
+plt.title("Correlation Matrix (Offset, RTT, Score, Hour)")
 plt.tight_layout()
-plt.savefig("correlation_matrix_with_country_hour.png")
+plt.savefig("correlation_matrix_no_country.png")
 
 # --- 9. Peer Summary Table (samples, outliers, jitter) ---
 peer_summary = df.groupby("monitor_name").agg(
@@ -145,7 +141,6 @@ print("\nPeer Summary (samples, outliers, jitter):")
 print(peer_summary)
 
 # --- 10. Time-of-Day Offset Plot ---
-df["hour"] = df["ts"].dt.hour
 plt.figure(figsize=(12,6))
 sns.boxplot(x="hour", y="offset", data=df)
 plt.title("Offset Distribution by Hour of Day")
@@ -242,7 +237,7 @@ plt.ylabel("Compliance (%)")
 plt.tight_layout()
 plt.savefig("country_compliance_summary.png")
 
-# --- 15. Combined Dashboard-style Plot (now 2x3 grid with correlation matrix) ---
+# --- 15. Combined Dashboard-style Plot (2x3 grid, NO country in correlation) ---
 fig, axes = plt.subplots(2, 3, figsize=(20,12))
 
 # Panel 1: Offset vs Time (with rolling mean)
@@ -300,10 +295,10 @@ axes[1,1].set_xlabel("Hour")
 axes[1,1].set_ylabel("Offset (s)")
 axes[1,1].grid(True)
 
-# Panel 6: Correlation Matrix (with hour + country)
-corr_label = df[["offset","rtt","score","country_encoded","hour"]].corr()
+# Panel 6: Correlation Matrix (EXCLUDING country)
+corr_label = df[["offset","rtt","score","hour"]].corr()
 sns.heatmap(corr_label, annot=True, cmap="coolwarm", center=0, ax=axes[1,2])
-axes[1,2].set_title("Correlation Matrix (Country + Hour)")
+axes[1,2].set_title("Correlation Matrix (Offset, RTT, Score, Hour)")
 
 plt.tight_layout()
 plt.savefig("ntp_dashboard_extended.png")
