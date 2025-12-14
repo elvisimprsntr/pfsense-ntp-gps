@@ -163,7 +163,7 @@ NTPPOOL ANALYSIS
 	* Copy and paste the data into a ntp.txt file.
 	* Use the ntp_analysis.py python script to perform analysis and generate the example plots below.
 		* Note: The script was developed and tested on macOS.  You may have to install some python dependancies. 
-		* pip install pandas matplotlib seaborn scikit-learn
+		* python3 -m pip install pandas matplotlib seaborn scikit-learn
 	* Credit: The script was developed with the assistance of MicroSoft CoPilot.
 
 ![ntp1](offset_vs_time_filtered.png)
